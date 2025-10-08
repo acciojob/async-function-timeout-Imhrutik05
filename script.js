@@ -1,12 +1,14 @@
 // select 
-const msg = document.getElementById('text').trim();
-const delay = document.getElementById('delay');
+const msgInput = document.getElementById('text');
+const delayInput = document.getElementById('delay');
 const btn = document.getElementById('btn');
 const msgDiv = document.getElementById('output');
 
 async function returnMsg(){
 	try {
-		if(msg && delay){
+		let msg = msgInput.value.trim();
+		let delay = parseInt(delayInput.value)
+		if(msg && delay >= 0){
 			await delayMsg(msg, delay);
 			msgDiv.style.display = 'block';
 			msgDiv.textContent = `${msg}`;
